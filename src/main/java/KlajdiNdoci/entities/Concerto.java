@@ -3,10 +3,12 @@ package KlajdiNdoci.entities;
 import KlajdiNdoci.enums.Genere;
 import KlajdiNdoci.enums.TipoEvento;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @Entity
+@DiscriminatorValue("Concerto")
 public class Concerto extends Evento {
     private Genere genere;
     private boolean inStreaming;

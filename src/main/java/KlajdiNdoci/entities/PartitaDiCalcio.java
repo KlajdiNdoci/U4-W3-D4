@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @Entity
-@DiscriminatorValue("Partita")
+@DiscriminatorValue("Partita di calcio")
 public class PartitaDiCalcio extends Evento {
     private String squadraDiCasa;
     private String squadraOspite;

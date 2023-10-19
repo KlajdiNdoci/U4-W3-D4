@@ -4,10 +4,13 @@ import KlajdiNdoci.enums.TipoEvento;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "eventi")
+@DiscriminatorValue("CategoriaEvento")
 
 public abstract class Evento {
     @Id
@@ -22,8 +25,8 @@ public abstract class Evento {
     @Enumerated(EnumType.STRING)
     private TipoEvento tipoEvento;
     private int numeroMassimoPartecipanti;
-    @OneToMany
-    private Set<Partecipazione> listaPartecipazioni;
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.REMOVE)
+    private Set<Partecipazione> listaPartecipazioni = new HashSet<>();
     @OneToOne
     @JoinColumn(name = "location_id")
     private Location location;
@@ -90,6 +93,14 @@ public abstract class Evento {
         this.tipoEvento = tipoEvento;
     }
 
+    public int getNumeroMassimoPartecipanti() {
+        return numeroMassimoPartecipanti;
+    }
+
+    public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
+
     @Override
     public String toString() {
         return "Evento{" +
@@ -99,15 +110,9 @@ public abstract class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                ", listaPartecipazioni=" + listaPartecipazioni +
+                ", location=" + location +
                 '}';
-    }
-
-    public int getNumeroMassimoPartecipanti() {
-        return numeroMassimoPartecipanti;
-    }
-
-    public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
-        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
 
     public long getId() {

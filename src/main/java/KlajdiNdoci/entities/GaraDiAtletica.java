@@ -2,20 +2,20 @@ package KlajdiNdoci.entities;
 
 import KlajdiNdoci.enums.TipoEvento;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@DiscriminatorValue("Gara di atletica")
 public class GaraDiAtletica extends Evento {
+    @OneToMany
+    private Set<Persona> atleti = new HashSet<>();
+
     @OneToOne
     @JoinColumn(name = "vincitore_id")
     private Persona vincitore;
-    @OneToMany
-    private Set<Persona> atleti;
 
     public GaraDiAtletica(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location, Persona vincitore, Set<Persona> atleti) {
         super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti, location);
