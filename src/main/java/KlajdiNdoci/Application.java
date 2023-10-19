@@ -4,6 +4,7 @@ import KlajdiNdoci.DAO.EventoDAO;
 import KlajdiNdoci.DAO.LocationDAO;
 import KlajdiNdoci.DAO.PartecipazioneDAO;
 import KlajdiNdoci.DAO.PersonaDAO;
+import KlajdiNdoci.enums.Genere;
 import KlajdiNdoci.utils.JpaUtil;
 
 import javax.persistence.EntityManager;
@@ -29,8 +30,12 @@ public class Application {
 //            personaDAO.save(giacomo);
 //            personaDAO.save(giovanni);
 //
-//            PartitaDiCalcio partita1 = new PartitaDiCalcio("Milan-Inter", LocalDate.of(2023, 5, 5), "derby", TipoEvento.PUBBLICO, 80000, sansiro, "Milan", "Inter", 1, 5);
+//            PartitaDiCalcio partita1 = new PartitaDiCalcio("Milan-Inter", LocalDate.of(2023, 5, 5), "derby1", TipoEvento.PUBBLICO, 80000, sansiro, "Milan", "Inter", 1, 5);
 //            eventoDAO.save(partita1);
+//            PartitaDiCalcio partita2 = new PartitaDiCalcio("Milan-Inter", LocalDate.of(2023, 5, 5), "derby2", TipoEvento.PUBBLICO, 80000, sansiro, "Milan", "Inter", 5, 1);
+//            eventoDAO.save(partita2);
+//            PartitaDiCalcio partita3 = new PartitaDiCalcio("Inter-Milan", LocalDate.of(2023, 5, 5), "derby3", TipoEvento.PUBBLICO, 80000, sansiro, "Inter", "Milan", 1, 1);
+//            eventoDAO.save(partita3);
 //
 //            Set<Persona> atleti = new HashSet<>();
 //            atleti.add(aldo);
@@ -40,13 +45,19 @@ public class Application {
 //            GaraDiAtletica gara1 = new GaraDiAtletica("Gara di atletica 1", LocalDate.of(2023, 5, 5), "gara delle olimpiadi", TipoEvento.PUBBLICO, 100000, sansiro, aldo, atleti);
 //            eventoDAO.save(gara1);
 //
-//            Concerto concerto1 = new Concerto("Concerto Salmo", LocalDate.of(2023, 5, 5), "Concerto", TipoEvento.PRIVATO, 100000, sansiro, Genere.ROCK, true);
+//            Concerto concerto1 = new Concerto("Concerto Salmo", LocalDate.of(2023, 5, 5), "Concerto1", TipoEvento.PRIVATO, 100000, sansiro, Genere.ROCK, true);
 //            eventoDAO.save(concerto1);
-//            Concerto concerto2 = new Concerto("Concerto FabriFibra", LocalDate.of(2023, 5, 5), "Concerto", TipoEvento.PRIVATO, 100000, sansiro, Genere.ROCK, false);
+//            Concerto concerto2 = new Concerto("Concerto FabriFibra", LocalDate.of(2023, 5, 5), "Concerto2", TipoEvento.PRIVATO, 100000, sansiro, Genere.POP, false);
 //            eventoDAO.save(concerto2);
+//            Concerto concerto3 = new Concerto("Concerto Vasco", LocalDate.of(2023, 5, 5), "Concerto3", TipoEvento.PRIVATO, 100000, sansiro, Genere.CLASSICO, false);
+//            eventoDAO.save(concerto3);
 
 
-            eventoDAO.findInStreaming(true).forEach(System.out::println);
+//            eventoDAO.findInStreaming(true).forEach(System.out::println);
+//            eventoDAO.findInStreaming(false).forEach(System.out::println);
+//            eventoDAO.findByGenre(Genere.CLASSICO).forEach(System.out::println);
+//            eventoDAO.findByGenre(Genere.POP).forEach(System.out::println);
+            eventoDAO.findByGenre(Genere.ROCK).forEach(System.out::println);
 
 
         } catch (Exception ex) {

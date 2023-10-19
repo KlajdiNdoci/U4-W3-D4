@@ -2,6 +2,7 @@ package KlajdiNdoci.DAO;
 
 import KlajdiNdoci.entities.Concerto;
 import KlajdiNdoci.entities.Evento;
+import KlajdiNdoci.enums.Genere;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -45,6 +46,12 @@ public class EventoDAO {
     public List<Concerto> findInStreaming(boolean trueOrFalse) {
         TypedQuery<Concerto> getAllQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :trueOrFalse", Concerto.class);
         getAllQuery.setParameter("trueOrFalse", trueOrFalse);
+        return getAllQuery.getResultList();
+    }
+
+    public List<Concerto> findByGenre(Genere genere) {
+        TypedQuery<Concerto> getAllQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class);
+        getAllQuery.setParameter("genere", genere);
         return getAllQuery.getResultList();
     }
 }
