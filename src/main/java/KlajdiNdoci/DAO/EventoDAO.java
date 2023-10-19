@@ -1,9 +1,12 @@
 package KlajdiNdoci.DAO;
 
+import KlajdiNdoci.entities.Concerto;
 import KlajdiNdoci.entities.Evento;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EventoDAO {
 
@@ -39,5 +42,9 @@ public class EventoDAO {
         }
     }
 
-
+    public List<Concerto> findInStreaming(boolean trueOrFalse) {
+        TypedQuery<Concerto> getAllQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :trueOrFalse", Concerto.class);
+        getAllQuery.setParameter("trueOrFalse", trueOrFalse);
+        return getAllQuery.getResultList();
+    }
 }

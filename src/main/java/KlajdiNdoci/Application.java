@@ -28,10 +28,10 @@ public class Application {
 //            personaDAO.save(aldo);
 //            personaDAO.save(giacomo);
 //            personaDAO.save(giovanni);
-////
+//
 //            PartitaDiCalcio partita1 = new PartitaDiCalcio("Milan-Inter", LocalDate.of(2023, 5, 5), "derby", TipoEvento.PUBBLICO, 80000, sansiro, "Milan", "Inter", 1, 5);
 //            eventoDAO.save(partita1);
-////
+//
 //            Set<Persona> atleti = new HashSet<>();
 //            atleti.add(aldo);
 //            atleti.add(giovanni);
@@ -42,7 +42,11 @@ public class Application {
 //
 //            Concerto concerto1 = new Concerto("Concerto Salmo", LocalDate.of(2023, 5, 5), "Concerto", TipoEvento.PRIVATO, 100000, sansiro, Genere.ROCK, true);
 //            eventoDAO.save(concerto1);
-//
+//            Concerto concerto2 = new Concerto("Concerto FabriFibra", LocalDate.of(2023, 5, 5), "Concerto", TipoEvento.PRIVATO, 100000, sansiro, Genere.ROCK, false);
+//            eventoDAO.save(concerto2);
+
+
+            eventoDAO.findInStreaming(true).forEach(System.out::println);
 
 
         } catch (Exception ex) {
