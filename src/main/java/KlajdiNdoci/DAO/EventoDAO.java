@@ -60,4 +60,15 @@ public class EventoDAO {
         TypedQuery<PartitaDiCalcio> getAllQuery = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraDiCasa = p.squadraVincente", PartitaDiCalcio.class);
         return getAllQuery.getResultList();
     }
+
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta() {
+        TypedQuery<PartitaDiCalcio> getAllQuery = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraOspite = p.squadraVincente", PartitaDiCalcio.class);
+        return getAllQuery.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartitePareggiate() {
+        TypedQuery<PartitaDiCalcio> getAllQuery = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = Pareggio", PartitaDiCalcio.class);
+        return getAllQuery.getResultList();
+    }
+
 }

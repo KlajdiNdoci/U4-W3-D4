@@ -64,6 +64,8 @@ public class Application {
             eventoDAO.findByGenre(Genere.ROCK).forEach(System.out::println);
 
             eventoDAO.getPartiteVinteInCasa().forEach(System.out::println);
+            eventoDAO.getPartiteVinteInTrasferta().forEach(System.out::println);
+            eventoDAO.getPartitePareggiate().forEach(System.out::println);
 
 
         } catch (Exception ex) {
