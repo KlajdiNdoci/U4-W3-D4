@@ -26,7 +26,7 @@ public class Persona {
     @JoinTable(name = "gara_atleta",
             joinColumns = @JoinColumn(name = "atleta_id"),
             inverseJoinColumns = @JoinColumn(name = "gara_id"))
-    private Set<Persona> atleti = new HashSet<>();
+    private Set<GaraDiAtletica> gare = new HashSet<>();
     @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Partecipazione> listaPartecipazioni;
 
