@@ -1,0 +1,7 @@
+package KlajdiNdoci.enums;
+
+public enum Genere {
+    CLASSICO,
+    ROCK,
+    POP
+}

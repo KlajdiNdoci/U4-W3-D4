@@ -1,39 +1,41 @@
-package KlajdiNdoci.entities;
+package KlajdiNdoci.DAO;
+
+import KlajdiNdoci.entities.Evento;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class LocationDAO {
+public class EventoDAO {
 
     private final EntityManager em;
 
-    public LocationDAO(EntityManager em) {
+    public EventoDAO(EntityManager em) {
         this.em = em;
     }
 
-    public void save(Location evento) {
+    public void save(Evento evento) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.persist(evento);
         transaction.commit();
-        System.out.println("Location salvata correttamente");
+        System.out.println("Evento salvato correttamente");
     }
 
-    public Location getById(long id) {
-        return em.find(Location.class, id);
+    public Evento getById(long id) {
+        return em.find(Evento.class, id);
 
     }
 
     public void delete(long id) {
-        Location selectedEv = em.find(Location.class, id);
+        Evento selectedEv = em.find(Evento.class, id);
         if (selectedEv != null) {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
             em.remove(selectedEv);
             transaction.commit();
-            System.out.println("La location é stata correttamente cancellata");
+            System.out.println("L'evento é stato correttamente cancellato");
         } else {
-            System.err.println("La location con l'id " + id + " non esiste");
+            System.err.println("L'evento con l'id " + id + " non esiste");
         }
     }
 

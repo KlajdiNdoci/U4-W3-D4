@@ -1,4 +1,6 @@
-package KlajdiNdoci.entities;
+package KlajdiNdoci.DAO;
+
+import KlajdiNdoci.entities.Persona;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

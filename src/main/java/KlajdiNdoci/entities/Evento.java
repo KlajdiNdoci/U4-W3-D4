@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "eventi")
 
-public class Evento {
+public abstract class Evento {
     @Id
     @GeneratedValue
 

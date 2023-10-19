@@ -1,39 +1,41 @@
-package KlajdiNdoci.entities;
+package KlajdiNdoci.DAO;
+
+import KlajdiNdoci.entities.Location;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class PartecipazioneDAO {
+public class LocationDAO {
 
     private final EntityManager em;
 
-    public PartecipazioneDAO(EntityManager em) {
+    public LocationDAO(EntityManager em) {
         this.em = em;
     }
 
-    public void save(Partecipazione evento) {
+    public void save(Location evento) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.persist(evento);
         transaction.commit();
-        System.out.println("Partecipazione salvata correttamente");
+        System.out.println("Location salvata correttamente");
     }
 
-    public Partecipazione getById(long id) {
-        return em.find(Partecipazione.class, id);
+    public Location getById(long id) {
+        return em.find(Location.class, id);
 
     }
 
     public void delete(long id) {
-        Partecipazione selectedEv = em.find(Partecipazione.class, id);
+        Location selectedEv = em.find(Location.class, id);
         if (selectedEv != null) {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
             em.remove(selectedEv);
             transaction.commit();
-            System.out.println("La partecipazione é stata correttamente cancellata");
+            System.out.println("La location é stata correttamente cancellata");
         } else {
-            System.err.println("La partecipazione con l'id " + id + " non esiste");
+            System.err.println("La location con l'id " + id + " non esiste");
         }
     }
 
