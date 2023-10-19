@@ -37,4 +37,21 @@ public class Concerto extends Evento {
     public void setInStreaming(boolean inStreaming) {
         this.inStreaming = inStreaming;
     }
+
+    @Override
+    public String toString() {
+        return "Concerto{" +
+                "genere=" + genere +
+                ", inStreaming=" + inStreaming +
+                ", titolo=" + getTitolo() +
+                ", inStreaming=" + inStreaming +
+                ", titolo='" + getTitolo() + '\'' +
+                ", dataEvento=" + getDataEvento() +
+                ", descrizione='" + getDescrizione() + '\'' +
+                ", tipoEvento=" + getTipoEvento() +
+                ", numeroMassimoPartecipanti=" + getNumeroMassimoPartecipanti() +
+                ", listaPartecipazioni=" + getListaPartecipazioni() +
+                ", location=" + getLocation() +
+                '}';
+    }
 }

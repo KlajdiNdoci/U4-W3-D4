@@ -15,7 +15,6 @@ public class GaraDiAtletica extends Evento {
             joinColumns = @JoinColumn(name = "gara_id"),
             inverseJoinColumns = @JoinColumn(name = "atleta_id"))
     private Set<Persona> atleti = new HashSet<>();
-
     @OneToOne
     @JoinColumn(name = "vincitore_id")
     private Persona vincitore;
@@ -27,6 +26,21 @@ public class GaraDiAtletica extends Evento {
     }
 
     public GaraDiAtletica() {
+    }
+
+    @Override
+    public String toString() {
+        return "GaraDiAtletica{" +
+                "atleti=" + atleti +
+                ", vincitore=" + vincitore +
+                ", titolo='" + getTitolo() + '\'' +
+                ", dataEvento=" + getDataEvento() +
+                ", descrizione='" + getDescrizione() + '\'' +
+                ", tipoEvento=" + getTipoEvento() +
+                ", numeroMassimoPartecipanti=" + getNumeroMassimoPartecipanti() +
+                ", listaPartecipazioni=" + getListaPartecipazioni() +
+                ", location=" + getLocation() +
+                '}';
     }
 
     public Set<Persona> getAtleti() {

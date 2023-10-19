@@ -55,6 +55,24 @@ public class PartitaDiCalcio extends Evento {
         return squadraVincente;
     }
 
+    @Override
+    public String toString() {
+        return "PartitaDiCalcio{" +
+                "squadraDiCasa='" + squadraDiCasa + '\'' +
+                ", squadraOspite='" + squadraOspite + '\'' +
+                ", squadraVincente='" + squadraVincente + '\'' +
+                ", golCasa=" + golCasa +
+                ", golOspite=" + golOspite +
+                ", titolo='" + getTitolo() + '\'' +
+                ", dataEvento=" + getDataEvento() +
+                ", descrizione='" + getDescrizione() + '\'' +
+                ", tipoEvento=" + getTipoEvento() +
+                ", numeroMassimoPartecipanti=" + getNumeroMassimoPartecipanti() +
+                ", listaPartecipazioni=" + getListaPartecipazioni() +
+                ", location=" + getLocation() +
+                '}';
+    }
+
     public int getGolCasa() {
         return golCasa;
     }
