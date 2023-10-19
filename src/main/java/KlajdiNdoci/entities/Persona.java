@@ -4,7 +4,9 @@ import KlajdiNdoci.enums.Sesso;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "persone")
@@ -20,6 +22,11 @@ public class Persona {
     private LocalDate dataNascita;
     @Enumerated(EnumType.STRING)
     private Sesso sesso;
+    @ManyToMany
+    @JoinTable(name = "gara_atleta",
+            joinColumns = @JoinColumn(name = "atleta_id"),
+            inverseJoinColumns = @JoinColumn(name = "gara_id"))
+    private Set<Persona> atleti = new HashSet<>();
     @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Partecipazione> listaPartecipazioni;
 

@@ -44,10 +44,10 @@ public class Application {
 //
 //            GaraDiAtletica gara1 = new GaraDiAtletica("Gara di atletica 1", LocalDate.of(2023, 5, 5), "gara delle olimpiadi 1", TipoEvento.PUBBLICO, 100000, sansiro, aldo, atleti);
 //            eventoDAO.save(gara1);
-////            GaraDiAtletica gara2 = new GaraDiAtletica("Gara di atletica 2", LocalDate.of(2023, 5, 5), "gara delle olimpiadi 2", TipoEvento.PUBBLICO, 100000, sansiro, giovanni, atleti);
-////            eventoDAO.save(gara2);
-////            GaraDiAtletica gara3 = new GaraDiAtletica("Gara di atletica 3", LocalDate.of(2023, 5, 5), "gara delle olimpiadi 3", TipoEvento.PUBBLICO, 100000, sansiro, giacomo, atleti);
-////            eventoDAO.save(gara3);
+//            GaraDiAtletica gara2 = new GaraDiAtletica("Gara di atletica 2", LocalDate.of(2023, 5, 5), "gara delle olimpiadi 2", TipoEvento.PUBBLICO, 100000, sansiro, giovanni, atleti);
+//            eventoDAO.save(gara2);
+//            GaraDiAtletica gara3 = new GaraDiAtletica("Gara di atletica 3", LocalDate.of(2023, 5, 5), "gara delle olimpiadi 3", TipoEvento.PUBBLICO, 100000, sansiro, giacomo, atleti);
+//            eventoDAO.save(gara3);
 //
 //            Concerto concerto1 = new Concerto("Concerto Salmo", LocalDate.of(2023, 5, 5), "Concerto1", TipoEvento.PRIVATO, 100000, sansiro, Genere.ROCK, true);
 //            eventoDAO.save(concerto1);
@@ -57,10 +57,10 @@ public class Application {
 //            eventoDAO.save(concerto3);
 
 
-//            eventoDAO.findInStreaming(true).forEach(System.out::println);
-//            eventoDAO.findInStreaming(false).forEach(System.out::println);
-//            eventoDAO.findByGenre(Genere.CLASSICO).forEach(System.out::println);
-//            eventoDAO.findByGenre(Genere.POP).forEach(System.out::println);
+            eventoDAO.findInStreaming(true).forEach(System.out::println);
+            eventoDAO.findInStreaming(false).forEach(System.out::println);
+            eventoDAO.findByGenre(Genere.CLASSICO).forEach(System.out::println);
+            eventoDAO.findByGenre(Genere.POP).forEach(System.out::println);
             eventoDAO.findByGenre(Genere.ROCK).forEach(System.out::println);
 
             eventoDAO.getPartiteVinteInCasa().forEach(System.out::println);

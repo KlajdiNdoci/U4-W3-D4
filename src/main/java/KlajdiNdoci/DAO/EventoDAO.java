@@ -67,7 +67,7 @@ public class EventoDAO {
     }
 
     public List<PartitaDiCalcio> getPartitePareggiate() {
-        TypedQuery<PartitaDiCalcio> getAllQuery = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = Pareggio", PartitaDiCalcio.class);
+        TypedQuery<PartitaDiCalcio> getAllQuery = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.golCasa = p.golOspite", PartitaDiCalcio.class);
         return getAllQuery.getResultList();
     }
 

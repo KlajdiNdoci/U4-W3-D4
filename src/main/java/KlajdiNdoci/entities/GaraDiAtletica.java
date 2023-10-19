@@ -10,7 +10,10 @@ import java.util.Set;
 @Entity
 @DiscriminatorValue("Gara di atletica")
 public class GaraDiAtletica extends Evento {
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "gara_atleta",
+            joinColumns = @JoinColumn(name = "gara_id"),
+            inverseJoinColumns = @JoinColumn(name = "atleta_id"))
     private Set<Persona> atleti = new HashSet<>();
 
     @OneToOne
