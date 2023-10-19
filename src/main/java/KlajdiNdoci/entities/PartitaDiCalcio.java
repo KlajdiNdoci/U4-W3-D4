@@ -11,7 +11,8 @@ import java.time.LocalDate;
 public class PartitaDiCalcio extends Evento {
     private String squadraDiCasa;
     private String squadraOspite;
-    private String squadraVincente = null;
+
+    private String squadraVincente;
     private int golCasa;
     private int golOspite;
 
@@ -21,10 +22,18 @@ public class PartitaDiCalcio extends Evento {
         this.squadraOspite = squadraOspite;
         this.golCasa = golCasa;
         this.golOspite = golOspite;
+        if (golCasa > golOspite) {
+            this.squadraVincente = squadraDiCasa;
+        } else if (golOspite > golCasa) {
+            this.squadraVincente = squadraOspite;
+        } else {
+            this.squadraVincente = "Pareggio";
+        }
     }
 
     public PartitaDiCalcio() {
     }
+
 
     public String getSquadraDiCasa() {
         return squadraDiCasa;
@@ -46,10 +55,6 @@ public class PartitaDiCalcio extends Evento {
         return squadraVincente;
     }
 
-    public void setSquadraVincente(String squadraVincente) {
-        this.squadraVincente = squadraVincente;
-    }
-
     public int getGolCasa() {
         return golCasa;
     }
@@ -65,4 +70,7 @@ public class PartitaDiCalcio extends Evento {
     public void setGolOspite(int golOspite) {
         this.golOspite = golOspite;
     }
+
+
 }
+

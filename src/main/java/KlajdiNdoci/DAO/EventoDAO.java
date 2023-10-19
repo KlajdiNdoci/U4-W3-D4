@@ -2,6 +2,7 @@ package KlajdiNdoci.DAO;
 
 import KlajdiNdoci.entities.Concerto;
 import KlajdiNdoci.entities.Evento;
+import KlajdiNdoci.entities.PartitaDiCalcio;
 import KlajdiNdoci.enums.Genere;
 
 import javax.persistence.EntityManager;
@@ -52,6 +53,11 @@ public class EventoDAO {
     public List<Concerto> findByGenre(Genere genere) {
         TypedQuery<Concerto> getAllQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class);
         getAllQuery.setParameter("genere", genere);
+        return getAllQuery.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteInCasa() {
+        TypedQuery<PartitaDiCalcio> getAllQuery = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraDiCasa = p.squadraVincente", PartitaDiCalcio.class);
         return getAllQuery.getResultList();
     }
 }
